@@ -1,0 +1,21 @@
+<h1>Editing Book</h1>
+
+<%= form_for @book do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, value: f.object.title, class: 'book_title' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body, value: f.object.body, class: 'book_body' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Update Book', data: { disable_with: "Updating..." } %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', book_path(@book.id) %>
+<%= link_to 'Back', books_path %>
