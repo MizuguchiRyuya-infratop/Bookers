@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 	end
 
 	def index
-		@books = Book.all.order('created_at DESC')
+		@books = Book.all
 		@book = Book.new
 	end
 
