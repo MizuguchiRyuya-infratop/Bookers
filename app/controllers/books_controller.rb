@@ -37,6 +37,17 @@ class BooksController < ApplicationController
 		end
 	end
 
+	def destroy
+		book = Book.find(params[:id])
+		if book.destroy
+			flash[:success] = '削除しました'
+			redirect_to books_path
+		else
+			flash[:danger] = '削除できませんでした'
+			redirect_to books_path
+		end
+	end
+
 	private
 
 	def book_params
